@@ -697,7 +697,7 @@ class TimerControls(discord.ui.View):
      #   await interaction.followup.send(embed=embed, view=view)
       #  clock.message = await interaction.original_response()
 
-    @discord.ui.button(label="⏹️ Stop", style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="⏹️ Stop Timer", style=discord.ButtonStyle.danger)
     async def stop_timer(self, interaction: discord.Interaction, button: discord.ui.Button):
         if not user_is_admin(interaction):
             return await interaction.response.send_message("❌ Admin role required.", ephemeral=True)
@@ -1113,7 +1113,7 @@ async def help_clock(interaction: discord.Interaction):
             "2. Click **▶️ Start Timer** to begin\n"
             "3. Use **Allies**/**Axis** buttons to switch control\n"
             "4. Toggle **🤖 Auto** for automatic switching\n"
-            "5. Click **⏹️ Stop** when match ends\n"
+            "5. Click **⏹️ Stop Timer** when match ends\n"
         ),
         inline=False
     )
