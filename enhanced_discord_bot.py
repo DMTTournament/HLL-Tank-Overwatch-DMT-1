@@ -576,7 +576,7 @@ class StartControls(discord.ui.View):
         else:
             await interaction.edit_original_response(content="✅ Match started (CRCON connection failed)")
 
-    @discord.ui.button(label="🔗 Test CRCON", style=discord.ButtonStyle.secondary)
+    @discord.ui.button(label="🔗 Test Connection", style=discord.ButtonStyle.secondary)
     async def test_crcon(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.defer(ephemeral=True)
         
