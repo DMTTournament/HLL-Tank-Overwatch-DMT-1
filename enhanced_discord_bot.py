@@ -697,7 +697,7 @@ class TimerControls(discord.ui.View):
      #   await interaction.followup.send(embed=embed, view=view)
       #  clock.message = await interaction.original_response()
 
-    @discord.ui.button(label="⏹️ Stop Timer", style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="⏹️ Manually Stop Timer", style=discord.ButtonStyle.danger)
     async def stop_timer(self, interaction: discord.Interaction, button: discord.ui.Button):
         if not user_is_admin(interaction):
             return await interaction.response.send_message("❌ Admin role required.", ephemeral=True)
