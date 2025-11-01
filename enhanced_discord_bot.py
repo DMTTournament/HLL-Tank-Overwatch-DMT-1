@@ -544,7 +544,7 @@ class StartControls(discord.ui.View):
         super().__init__(timeout=None)
         self.channel_id = channel_id
 
-    @discord.ui.button(label="▶️ Start Match", style=discord.ButtonStyle.success)
+    @discord.ui.button(label="▶️ Start Timer", style=discord.ButtonStyle.success)
     async def start_match(self, interaction: discord.Interaction, button: discord.ui.Button):
         if not user_is_admin(interaction):
             return await interaction.response.send_message("❌ Admin role required.", ephemeral=True)
@@ -1110,7 +1110,7 @@ async def help_clock(interaction: discord.Interaction):
         name="🎮 How to Use",
         value=(
             "1. Use `/reverse_clock` to create a clock\n"
-            "2. Click **▶️ Start Match** to begin\n"
+            "2. Click **▶️ Start Timer** to begin\n"
             "3. Use **Allies**/**Axis** buttons to switch control\n"
             "4. Toggle **🤖 Auto** for automatic switching\n"
             "5. Click **⏹️ Stop** when match ends\n"
