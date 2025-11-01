@@ -529,7 +529,7 @@ def build_embed(clock: ClockState):
     embed.add_field(name="🎯 Point Control", value=leader_text, inline=False)
     
     # Footer with connection status
-    connection_status = f"🟢 CRCON Connected" if clock.crcon_client else "🔴 CRCON Disconnected"
+    connection_status = f"🟢 Connected" if clock.crcon_client else "🔴 Disconnected"
     auto_status = " | 🤖 Auto ON" if clock.auto_switch else " | 🤖 Auto OFF"
     
     footer_text = f"Match Clock by {os.getenv('BOT_AUTHOR', 'StoneyRebel')} | {connection_status}{auto_status}"
@@ -588,7 +588,7 @@ class StartControls(discord.ui.View):
                 if live_data:
                     game_state = live_data.get('game_state', {})
                     map_info = live_data.get('map_info', {})
-                    embed = discord.Embed(title="🟢 CRCON Test - SUCCESS", color=0x00ff00)
+                    embed = discord.Embed(title="🟢 Connection Test - SUCCESS", color=0x00ff00)
                     embed.add_field(name="Status", value="✅ Connected", inline=True)
                     
                     # Extract map name
@@ -604,12 +604,12 @@ class StartControls(discord.ui.View):
                     embed.add_field(name="Map", value=map_name, inline=True)
                     embed.add_field(name="Players", value=f"{game_state.get('nb_players', 0)}/100", inline=True)
                 else:
-                    embed = discord.Embed(title="🟡 CRCON Test - PARTIAL", color=0xffaa00)
+                    embed = discord.Embed(title="🟡 Conncection Test - PARTIAL", color=0xffaa00)
                     embed.add_field(name="Status", value="Connected but no data", inline=False)
                     
         except Exception as e:
-            embed = discord.Embed(title="🔴 CRCON Test - FAILED", color=0xff0000)
-            embed.add_field(name="Error", value=str(e)[:1000], inline=False)
+            embed = discord.Embed(title="🔴 Connection Test - FAILED", color=0xff0000)
+            embed.add_field(name="Error - Log into CRCON to start the connection", value=str(e)[:1000], inline=False)
         
         await interaction.followup.send(embed=embed, ephemeral=True)
 
